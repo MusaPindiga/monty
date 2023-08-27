@@ -61,6 +61,7 @@ char **strtow(char *str, char *delims);
 /* UPCODE FUNCTIONS */
 void push_stack(stack_t **stack, unsigned int line_number);
 void pall_stack(stack_t **stack, unsigned int line_number);
+void pint_stack(stack_t **stack, unsigned int line_number);
 
 /* ERROR MESSAGES AND CODES FUNCTIONS*/
 int usage_error(void);
@@ -68,5 +69,5 @@ int malloc_error(void);
 int f_open_error(char *filename);
 int unknown_op_error(char *opcode, unsigned int line_number);
 int no_int_error(unsigned int line_number);
-
+int pint_error(unsigned int line_number);
 #endif /*_MONTY_H_ */
