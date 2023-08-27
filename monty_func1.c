@@ -3,7 +3,7 @@
 void push_stack(stack_t **stack, unsigned int line_number);
 void pall_stack(stack_t **stack, unsigned int line_number);
 void pint_stack(stack_t **stack, unsigned int line_number);
-
+void pop_stack(stack_t **stack, unsigned int line_number);
 /**
  * push_stack - Pushes a value to a stack_t linked list.
  * @stack: A pointer to the top mode node of a stack_t linked list.
@@ -90,4 +90,26 @@ void pint_stack(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%d\n", (*stack)->next->n);
+}
+
+/**
+ * pop_stack - Removes the top value element of a stack_t linked list.
+ * @stack: A pointer to the top mode node of a stack_t linked list.
+ * @line_number: The current working line number of a Monty bytecodes file.
+ */
+void pop_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *next = NULL;
+
+	if ((*stack)->next == NULL)
+	{
+		set_op_tok_error(pop_error(line_number));
+		return;
+	}
+
+	next = (*stack)->next->next;
+	free((*stack)->next);
+	if (next)
+		next->prev = *stack;
+	(*stack)->next = next;
 }
