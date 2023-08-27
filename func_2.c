@@ -1,7 +1,7 @@
 #include "monty.h"
 
 void add_stack(stack_t **stack, unsigned int line_number);
-void nop_func(stact_t **stack, unsigned int line_number);
+void nop_func(stack_t **stack, unsigned int line_number);
 
 /**
  * add_stack - Adds the top two values of a stack_t linked list.
